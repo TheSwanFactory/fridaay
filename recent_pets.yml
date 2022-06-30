@@ -1,0 +1,29 @@
+fridaay:
+  version: 0.1
+  do: init
+  imports:
+   sql: dad-sql
+  set: # global constants (COMMENT)
+    NAME: pipebook_demo1
+    SAPIENT: Human
+    
+test_data:
+  doc: Sample data for test purposes
+  do: sql.load
+  csv.inline:
+  - ['Name','Age','Weight', 'Type', 'Timestamp']
+  - ['Ernie', 54, 170.5, 'Human Tech Nerd', date'2020-03-20']
+  - ['Qhuinn', 7, 36.3, 'English Cocker Spaniel', date'2022-06-27']
+  - ['Frolic', 2, 76.2, 'Chocolate Labrador', date'2022-06-27']
+
+recent_pets:
+  do: sql.select
+  from: $$ # last frame
+  cols:
+    Name: STRING Personal Name
+    Age: INTEGER.year Age
+    Weight: DOUBLE.pound Current Weight
+  where.all:
+   - ['Type', NOT LIKE, $SAPIENT] # dereference constant
+   - ['Timestamp','>', date'2022-01-01']
+  save: table
