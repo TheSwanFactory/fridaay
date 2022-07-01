@@ -2,11 +2,11 @@ fridaay:
   version: 0.1
   do: init
   imports:
-   sql: dad-sql
+   sql: dad-sql-pandas
   set: # global constants (COMMENT)
-    NAME: pipebook_demo1
+    NAME: demo_pets
     SAPIENT: Human
-    
+
 test_data:
   doc: Sample data for test purposes
   do: sql.load
@@ -16,7 +16,7 @@ test_data:
   - ['Qhuinn', 7, 36.3, 'English Cocker Spaniel', date'2022-06-27']
   - ['Frolic', 2, 76.2, 'Chocolate Labrador', date'2022-06-27']
 
-recent_pets:
+demo_pets:
   do: sql.select
   from: $$ # last frame
   cols:
