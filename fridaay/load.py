@@ -2,13 +2,14 @@ import os,sys,yaml
 PIPE_FOLDER="pipes"
 DAD_FOLDER="fridaay/dad"
 
-def read_yaml(filename, folder=PIPE_FOLDER):
-    path = os.path.join(PIPE_FOLDER, filename)
+def read_yaml(name, folder=PIPE_FOLDER):
+    filename = f'{name}.yml'
+    path = os.path.join(folder, filename)
     with open(path, 'r') as file:
         yml = yaml.safe_load(file)
         return yml
 
 def read_schema(action):
-    filename = f'dad-{action}'
-    yml = read_yaml(filename, DAD_FOLDER)
+    name = f'dad-{action}'
+    yml = read_yaml(name, DAD_FOLDER)
     return yml
