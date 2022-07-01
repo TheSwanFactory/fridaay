@@ -1,4 +1,5 @@
 from .load import read_dad
+from .schema import Schema
 
 class Pipe:
     def __init__(self, yml):
@@ -18,6 +19,7 @@ class Pipe:
     def find_schema(self, act):
         if act not in self.schemas:
             yml = read_dad(act)
+            schema = Schema(yml)
             self.schemas[act] = yml
         return self.schemas[act]
 
