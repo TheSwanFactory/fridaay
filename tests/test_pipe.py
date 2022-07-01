@@ -9,3 +9,7 @@ def pipe():
 
 def test_pipe(pipe):
     assert pipe
+
+def test_find_schema(pipe):
+    schema = pipe.find_schema('init')
+    assert schema

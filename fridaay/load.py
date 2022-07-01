@@ -9,7 +9,7 @@ def read_yaml(name, folder=PIPE_FOLDER):
         yml = yaml.safe_load(file)
         return yml
 
-def read_schema(action):
+def read_dad(action):
     name = f'dad-{action}'
     yml = read_yaml(name, DAD_FOLDER)
     return yml

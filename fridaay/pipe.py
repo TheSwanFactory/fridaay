@@ -1,4 +1,4 @@
-from .load import read_schema
+from .load import read_dad
 
 class Pipe:
     def __init__(self, yml):
@@ -11,13 +11,13 @@ class Pipe:
         for id, action in self.source.items():
             action['id'] = id
             act = action['do']
-            schema = self.fetch(act)
+            schema = self.find_schema(act)
             obj = self.parse(action, schema)
             self.object.push(obj)
 
-    def fetch(self, act):
+    def find_schema(self, act):
         if act not in self.schemas:
-            yml = read_schema(act)
+            yml = read_dad(act)
             self.schemas[act] = yml
         return self.schemas[act]
 
