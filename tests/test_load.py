@@ -1,6 +1,11 @@
+import pytest
 from .conftest import *
 
-def test_yaml():
+@pytest.fixture
+def yml():
     yml = read_yaml(TEST_FILE)
+    return yml
+
+def test_yaml(yml):
     assert yml
-    #assert 'init' in yml
+    assert 'fridaay' in yml
