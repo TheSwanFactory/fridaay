@@ -1,6 +1,4 @@
-import yaml
-
-TEST_FILE='pipes/demo_pets.yml'
+from .conftest import *
 
 def test_yaml():
-    assert True
+    assert 'demo' in TEST_FILE
