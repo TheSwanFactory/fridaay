@@ -12,4 +12,4 @@ def test_pipe(pipe):
 
 def test_find_schema(pipe):
     schema = pipe.find_schema('init')
-    assert schema
+    assert isinstance(schema, Schema)

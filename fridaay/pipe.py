@@ -13,15 +13,12 @@ class Pipe:
             action['id'] = id
             act = action['do']
             schema = self.find_schema(act)
-            obj = self.parse(action, schema)
+            obj = schema.parse(action)
             self.object.push(obj)
 
     def find_schema(self, act):
         if act not in self.schemas:
             yml = read_dad(act)
             schema = Schema(yml)
-            self.schemas[act] = yml
+            self.schemas[act] = schema
         return self.schemas[act]
-
-    def parse(self, action, schema):
-        return self
