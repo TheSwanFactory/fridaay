@@ -9,3 +9,7 @@ def yml():
 def test_yaml(yml):
     assert yml
     assert 'fridaay' in yml
+
+def test_init(yml):
+    action = yml['fridaay']
+    assert 'init' == action['do']
