@@ -1,0 +1,2 @@
+- name: Setup Poetry
+  uses: Gr1N/setup-poetry@v7
