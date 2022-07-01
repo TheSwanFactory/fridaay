@@ -19,6 +19,6 @@ class Pipe:
     def find_schema(self, act):
         if act not in self.schemas:
             yml = read_dad(act)
-            schema = Schema(yml)
+            schema = Schema(act, yml)
             self.schemas[act] = schema
         return self.schemas[act]
