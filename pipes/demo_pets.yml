@@ -10,7 +10,7 @@ fridaay:
 test_data:
   doc: Sample data for test purposes
   do: sql.load
-  csv.inline:
+  csv:
   - ['Name','Age','Weight', 'Type', 'Timestamp']
   - ['Ernie', 54, 170.5, 'Human Tech Nerd', date'2020-03-20']
   - ['Qhuinn', 7, 36.3, 'English Cocker Spaniel', date'2022-06-27']

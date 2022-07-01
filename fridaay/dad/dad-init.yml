@@ -1,0 +1,10 @@
+init:
+    version:
+      required: True
+      type: DOUBLE
+    imports:
+      required: True
+      type: dict.STRING
+    set:
+      required: False
+      type: dict

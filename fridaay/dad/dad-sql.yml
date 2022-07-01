@@ -1,0 +1,23 @@
+load:
+    table.*:
+      required: False
+      type: dict
+    csv:
+      required: False
+      type: dict
+    json:
+      required: False
+      type: dict
+    file:
+      required: False
+      type: STRING
+select:
+    from:
+      required: True
+      type: frame
+    cols:
+      required: False
+      type: dict.STRING
+    where:
+      required: False
+      type: dict
