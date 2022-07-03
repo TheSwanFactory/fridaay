@@ -11,10 +11,12 @@ class Pipe:
 
     def substitute(self, action):
         for key, value in action.items():
-            if value[0] == K_VAR: action[key] = self.vars[1:]
+            if isinstance(value, str) and value[0] == K_VAR:
+                var = value[1:]
+                action[key] = self.vars[var]
 
     def init(self, asm):
-        self.registry.init(asm.imports)
+        self.registry.load(asm.imports)
         return self
 
     def compile(self):
@@ -25,6 +27,6 @@ class Pipe:
             if asm.do == K_INIT:
                 self.init(asm)
             else:
-                self.assembly.push(asm)
+                self.assembly.append(asm)
             self.vars[K_VAR] = id
         return self.assembly

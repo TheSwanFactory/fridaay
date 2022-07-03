@@ -10,3 +10,4 @@ def pipe():
 
 def test_pipe(pipe):
     assert pipe
+    assert pipe.compile()

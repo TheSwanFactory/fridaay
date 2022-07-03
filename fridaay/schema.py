@@ -25,7 +25,7 @@ class Schema:
         return action
 
     def parse(self, action):
-        if K_FROM in action: action[F_KEY] = action.pop(K_FROM)
+        if K_FROM in action: action[K_FKEY] = action.pop(K_FROM)
         defaulted = self.default(action)
         tuple = self.struct(**defaulted)
         return tuple
