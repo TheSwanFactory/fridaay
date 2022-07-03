@@ -7,5 +7,6 @@ class Registry:
         self.schemas = {}
         ydict = read_yamls(folder)
         for id, yml in ydict.items():
+            name = id.replace('dad-','')
             for act, dad in yml.items():
-                self.schemas[f'{id}.{act}'] = Schema(act, dad)
+                self.schemas[f'{name}.{act}'] = Schema(act, dad)
