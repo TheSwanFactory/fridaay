@@ -31,6 +31,8 @@ def test_optional(schema):
     d.pop("a")
     p = schema.parse(d)
     assert p
+    assert p.a == False
+    assert p.doc == False
 
 def test_mandatory(schema):
     with pytest.raises(Exception) as e:
