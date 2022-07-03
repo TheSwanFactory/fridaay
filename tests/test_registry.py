@@ -15,4 +15,9 @@ def test_schema(reg):
     assert schema
 
 def test_dadify(reg, yml):
-    assert reg
+    init = yml[FIRST_ID]
+    assert init
+    init['id'] = FIRST_ID
+    dad = reg.dadify(init)
+    print(dad)
+    assert dad.id == FIRST_ID
