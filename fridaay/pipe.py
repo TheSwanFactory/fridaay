@@ -8,11 +8,11 @@ class Pipe:
         self.object = []
         self.schemas = {}
         self.next_index = 0
-        self.last_id = FIRST_ID
+        self.vars = {K_VAR: FIRST_ID}
 
     def substitute(self, action):
         for key, value in action.items():
-            if value == LAST_ID: action[key] = self.last_id
+            if value[0] == K_VAR: action[key] = self.vars[1:]
 
     def compile(self):
         for id, action in self.source.items():
@@ -22,7 +22,7 @@ class Pipe:
             schema = self.find_dad(act)
             obj = schema.parse(action)
             self.object.push(obj)
-            self.last_id = id
+            self.vars[K_VAR] = id
 
     def find_dad(self, act):
         if act not in self.schemas:
