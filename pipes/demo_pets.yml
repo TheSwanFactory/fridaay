@@ -1,6 +1,6 @@
 fridaay:
   version: 0.1
-  do: init
+  do: core.init
   imports:
    sql: dad-sql-pandas
   set: # global constants (COMMENT)

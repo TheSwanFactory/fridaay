@@ -1,4 +1,3 @@
-from .load import read_dad
 from .schema import Schema
 
 class Pipe:
