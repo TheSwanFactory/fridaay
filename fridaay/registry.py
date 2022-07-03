@@ -27,6 +27,6 @@ class Registry:
 
     def load(self, imports):
         for key, value in imports.items():
-            mod = __import__(value, globals=None, locals=None, fromlist=True)
+            mod = __import__(value, globals=None, locals=None, fromlist=False)
             self.modules[key] = mod
-        return True
+        return self.modules

@@ -22,4 +22,5 @@ def test_dadify(reg, yml):
     assert dad.id == FIRST_ID
     imp = dad.imports
     assert imp
-    assert reg.load(imp)
+    mods = reg.load(imp)
+    assert mods
