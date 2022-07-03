@@ -14,11 +14,11 @@ def test_schema(reg):
     schema = reg.schemas[TEST_DO]
     assert schema
 
-def test_dadify(reg, yml):
+def test_assemble(reg, yml):
     init = yml[FIRST_ID]
     assert init
     init['id'] = FIRST_ID
-    dad = reg.dadify(init)
+    dad = reg.assemble(init)
     assert dad.id == FIRST_ID
     imp = dad.imports
     assert imp

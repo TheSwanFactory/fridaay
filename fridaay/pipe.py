@@ -5,7 +5,7 @@ class Pipe:
     def __init__(self, reg, yml):
         self.registry = reg
         self.source = yml
-        self.object = []
+        self.assembly = []
         self.next_index = 0
         self.vars = {K_VAR: FIRST_ID}
 
@@ -13,17 +13,18 @@ class Pipe:
         for key, value in action.items():
             if value[0] == K_VAR: action[key] = self.vars[1:]
 
-    def init(self, obj):
-        self.registry.init(obj.imports)
+    def init(self, asm):
+        self.registry.init(asm.imports)
         return self
 
     def compile(self):
         for id, action in self.source.items():
             action['id'] = id
             self.substitute(action)
-            obj = self.registry.dadify(action)
-            if obj.do == K_INIT:
-                self.init(obj)
+            asm = self.registry.assemble(action)
+            if asm.do == K_INIT:
+                self.init(asm)
             else:
-                self.object.push(obj)
+                self.assembly.push(asm)
             self.vars[K_VAR] = id
+        return self.assembly
