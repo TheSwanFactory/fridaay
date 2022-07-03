@@ -17,4 +17,4 @@ def test_yamls():
 
 def test_init(yml):
     action = yml['fridaay']
-    assert 'core.init' == action['do']
+    assert TEST_DO == action['do']

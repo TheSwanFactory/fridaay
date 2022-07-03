@@ -6,6 +6,9 @@ def reg():
     r = Registry()
     return r
 
-def test_pipe(reg):
+def test_registry(reg):
     assert reg
-    assert 'core.init' in reg.schemas
+    assert TEST_DO in reg.schemas
+
+def test_schema(reg):
+    schema = reg.schemas[TEST_DO]
