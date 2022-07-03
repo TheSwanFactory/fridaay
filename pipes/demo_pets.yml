@@ -20,9 +20,9 @@ demo_pets:
   do: sql.select
   from: $$ # last frame
   cols:
-    Name: STRING Personal Name
-    Age: INTEGER.year Age
-    Weight: DOUBLE.pound Current Weight
+    Name: .str Personal Name
+    Age: .int.year Age
+    Weight: .float.pound Current Weight
   where_all:
    - ['Type', NOT LIKE, $SAPIENT] # dereference constant
    - ['Timestamp','>', date'2022-01-01']

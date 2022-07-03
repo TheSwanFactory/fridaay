@@ -10,4 +10,8 @@ def pipe():
 
 def test_pipe(pipe):
     assert pipe
-    assert pipe.compile()
+
+def test_compile(pipe):
+    asms = pipe.compile()
+    print(asms)
+    assert len(asms) == 2

@@ -2,9 +2,9 @@ load:
     table: dict
     csv: dict
     json: dict
-    file: STRING
+    file: str
 select:
     from: frame*
-    cols: dict.STRING
+    cols: dict.str
     where_all: dict
     where_any: dict
