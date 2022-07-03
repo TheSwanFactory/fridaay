@@ -8,3 +8,4 @@ def reg():
 
 def test_pipe(reg):
     assert reg
+    assert 'dad-init.init' in reg.schemas
