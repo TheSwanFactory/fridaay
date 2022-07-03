@@ -14,9 +14,8 @@ def read_yamls(folder=PIPE_FOLDER):
        print(f'read_yamls: {root}')
        for name in files:
           split = name.split('.')
-          if 'yml' in split:
-              f = os.path.join(root, name)
-              all[split[0]] = f
+          key = split[0]
+          if 'yml' in split: all[key] = read_yaml(key, root)
     return all
 
 def read_dad(dad):
