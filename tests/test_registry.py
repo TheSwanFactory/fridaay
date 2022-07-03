@@ -2,9 +2,7 @@ import pytest
 from .conftest import *
 
 @pytest.fixture
-def reg():
-    r = Registry()
-    return r
+def reg(): return Registry()
 
 def test_registry(reg):
     assert reg
@@ -13,3 +11,6 @@ def test_registry(reg):
 def test_schema(reg):
     schema = reg.schemas[TEST_DO]
     assert schema
+
+def test_dadify(reg):
+    assert reg

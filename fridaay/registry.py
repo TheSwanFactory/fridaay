@@ -17,3 +17,9 @@ class Registry:
         for id, yml in ydict.items():
             name = id.replace('dad-','')
             self.add_dad(name, yml)
+
+    def dadify(self, action):
+        act = action['do']
+        schema = self.schemas[act]
+        obj = schema.parse(action)
+        return obj
