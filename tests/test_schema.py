@@ -14,9 +14,7 @@ DATA = {
 }
 
 @pytest.fixture
-def schema():
-    s = Schema('scheme', SCHEME)
-    return s
+def schema(): return Schema('scheme', SCHEME)
 
 def test_schema(schema):
     assert schema

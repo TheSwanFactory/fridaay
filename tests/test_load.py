@@ -2,9 +2,7 @@ import pytest
 from .conftest import *
 
 @pytest.fixture
-def yml():
-    yml = read_yaml(TEST_FILE)
-    return yml
+def yml(): return read_yaml(TEST_FILE)
 
 def test_yaml(yml):
     assert yml
