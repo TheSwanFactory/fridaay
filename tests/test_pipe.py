@@ -18,3 +18,6 @@ def test_compile(pipe):
     assert len(asms) == 2
     a0 = asms[0]
     assert a0.do == 'sql.load'
+    a1 = asms[1]
+    print(a1)
+    assert a1.from_key == a0.id
