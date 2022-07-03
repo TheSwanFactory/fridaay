@@ -12,3 +12,4 @@ def test_registry(reg):
 
 def test_schema(reg):
     schema = reg.schemas[TEST_DO]
+    assert schema
