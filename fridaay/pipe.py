@@ -15,20 +15,20 @@ class Pipe:
                 var = value[1:]
                 action[key] = self.vars[var]
 
-    def init(self, asm):
-        self.registry.load(asm.imports)
-        if asm.set:
-            for k,v in asm.set.items(): self.vars[k] = v
+    def init(self, action):
+        self.registry.load(action['imports'])
+        if action['set']:
+            for k,v in action['set'].items(): self.vars[k] = v
         return self
 
     def compile(self):
         for id, action in self.source.items():
             action['id'] = id
-            self.substitute(action)
-            asm = self.registry.assemble(action)
-            if asm.do == K_INIT:
-                self.init(asm)
+            if action['do'] == K_INIT:
+                self.init(action)
             else:
+                self.substitute(action)
+                asm = self.registry.assemble(action)
                 self.assembly.append(asm)
             self.vars[K_VAR] = id
         return self.assembly

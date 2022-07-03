@@ -22,6 +22,7 @@ class Registry:
     def assemble(self, action):
         act = action['do']
         schema = self.schemas[act]
+        action[K_CODE] = self.find_code(act)
         obj = schema.parse(action)
         return obj
 
@@ -29,3 +30,9 @@ class Registry:
         for key, value in imports.items():
             self.modules[key] = load_module(value)
         return self.modules
+
+    def find_code(self, act):
+        key, fn = act.split('.')
+        mod = self.modules[key]
+        #method = mod[fn]
+        return mod

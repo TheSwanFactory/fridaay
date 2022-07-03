@@ -6,7 +6,7 @@ class Schema:
     def __init__(self, act, dad):
         self.act = act
         self.dad = {}
-        self.optional = ['doc','save']
+        self.optional = ['doc','save',K_CODE]
         self.keys = ['id','do'] + self.optional
         self.sanitize(dad)
         self.struct = namedtuple(self.act, self.keys)

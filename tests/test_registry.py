@@ -18,9 +18,13 @@ def test_assemble(reg, yml):
     init = yml[FIRST_ID]
     assert init
     init['id'] = FIRST_ID
-    dad = reg.assemble(init)
-    assert dad.id == FIRST_ID
-    imp = dad.imports
+    imp = init['imports']
     assert imp
     mods = reg.load(imp)
     assert mods
+
+    action = yml[TEST_ID]
+    action['id'] = TEST_ID
+    assert action
+    dad = reg.assemble(action)
+    assert dad.id == TEST_ID
