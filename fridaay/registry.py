@@ -1,5 +1,5 @@
 from .constants import DAD_FOLDER
-from .load import load_yamls
+from .load import *
 from .schema import Schema
 
 class Registry:
@@ -27,6 +27,5 @@ class Registry:
 
     def load(self, imports):
         for key, value in imports.items():
-            mod = __import__(value, globals=None, locals=None, fromlist=False)
-            self.modules[key] = mod
+            self.modules[key] = load_module(value)
         return self.modules

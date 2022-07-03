@@ -17,3 +17,7 @@ def load_yamls(folder=PIPE_FOLDER):
           key = split[0]
           if 'yml' in split: ydict[key] = load_yaml(key, root)
     return ydict
+
+def load_module(module_name):
+    mod = __import__(module_name, globals=None, locals=None, fromlist=False)
+    return mod
