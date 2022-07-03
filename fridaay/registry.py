@@ -34,5 +34,7 @@ class Registry:
     def find_code(self, act):
         key, fn = act.split('.')
         mod = self.modules[key]
-        #method = mod[fn]
-        return mod
+        if(hasattr(mod, fn)):
+            func = getattr(mod, fn)
+            return func
+        return False

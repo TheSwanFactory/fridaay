@@ -28,3 +28,4 @@ def test_assemble(reg, yml):
     assert action
     dad = reg.assemble(action)
     assert dad.id == TEST_ID
+    assert dad.CODE
