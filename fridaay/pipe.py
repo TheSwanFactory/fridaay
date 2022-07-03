@@ -6,7 +6,6 @@ class Pipe:
         self.registry = reg
         self.source = yml
         self.object = []
-        self.schemas = {}
         self.next_index = 0
         self.vars = {K_VAR: FIRST_ID}
 
@@ -18,15 +17,6 @@ class Pipe:
         for id, action in self.source.items():
             action['id'] = id
             self.substitute(action)
-            act = action['do']
-            schema = self.find_dad(act)
-            obj = schema.parse(action)
+            obj = self.registry.dadify(action)
             self.object.push(obj)
             self.vars[K_VAR] = id
-
-    def find_dad(self, act):
-        if act not in self.schemas:
-            yml = read_dad(act)
-            schema = Schema(act, yml)
-            self.schemas[act] = schema
-        return self.schemas[act]

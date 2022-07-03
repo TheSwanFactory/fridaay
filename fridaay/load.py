@@ -17,8 +17,3 @@ def read_yamls(folder=PIPE_FOLDER):
           key = split[0]
           if 'yml' in split: ydict[key] = read_yaml(key, root)
     return ydict
-
-def read_dad(dad):
-    name = f'dad-{dad}'
-    yml = read_yaml(name, DAD_FOLDER)
-    return yml
