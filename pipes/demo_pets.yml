@@ -23,7 +23,7 @@ demo_pets:
     Name: STRING Personal Name
     Age: INTEGER.year Age
     Weight: DOUBLE.pound Current Weight
-  where.all:
+  where_all:
    - ['Type', NOT LIKE, $SAPIENT] # dereference constant
    - ['Timestamp','>', date'2022-01-01']
   save: table

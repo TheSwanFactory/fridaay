@@ -6,4 +6,5 @@ load:
 select:
     from: frame*
     cols: dict.STRING
-    where: dict
+    where_all: dict
+    where_any: dict
