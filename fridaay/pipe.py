@@ -17,6 +17,8 @@ class Pipe:
 
     def init(self, asm):
         self.registry.load(asm.imports)
+        if asm.set:
+            for k,v in asm.set.items(): self.vars[k] = v
         return self
 
     def compile(self):

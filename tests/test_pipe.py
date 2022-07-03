@@ -13,5 +13,8 @@ def test_pipe(pipe):
 
 def test_compile(pipe):
     asms = pipe.compile()
+    assert pipe.vars['SAPIENT']
     print(asms)
     assert len(asms) == 2
+    a0 = asms[0]
+    assert a0.do == 'sql.load'
