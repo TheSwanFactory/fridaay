@@ -4,7 +4,8 @@ from .conftest import *
 @pytest.fixture
 def pipe():
     yml = read_yaml(TEST_FILE)
-    p = Pipe(yml)
+    r = Registry()
+    p = Pipe(r, yml)
     return p
 
 def test_pipe(pipe):

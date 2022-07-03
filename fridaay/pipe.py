@@ -1,7 +1,8 @@
 from .schema import Schema
 
 class Pipe:
-    def __init__(self, yml):
+    def __init__(self, reg, yml):
+        self.registry = reg
         self.source = yml
         self.object = []
         self.schemas = {}
