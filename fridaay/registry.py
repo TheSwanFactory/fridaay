@@ -23,3 +23,6 @@ class Registry:
         schema = self.schemas[act]
         obj = schema.parse(action)
         return obj
+
+    def load(self, imports):
+        return True

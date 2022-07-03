@@ -19,5 +19,7 @@ def test_dadify(reg, yml):
     assert init
     init['id'] = FIRST_ID
     dad = reg.dadify(init)
-    print(dad)
     assert dad.id == FIRST_ID
+    imp = dad.imports
+    assert imp
+    assert reg.load(imp)
