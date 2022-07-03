@@ -1,5 +1,5 @@
 from .constants import DAD_FOLDER
-from .load import read_yamls
+from .load import load_yamls
 from .schema import Schema
 
 class Registry:
@@ -14,7 +14,7 @@ class Registry:
             self.schemas[key] = Schema(act, dad)
 
     def add_folder(self, folder):
-        ydict = read_yamls(folder)
+        ydict = load_yamls(folder)
         for id, yml in ydict.items():
             name = id.replace('dad-','')
             self.add_dad(name, yml)

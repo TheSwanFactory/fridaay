@@ -4,7 +4,7 @@ from .conftest import *
 @pytest.fixture
 def reg(): return Registry()
 @pytest.fixture
-def yml(): return read_yaml(TEST_FILE)
+def yml(): return load_yaml(TEST_FILE)
 
 def test_registry(reg):
     assert reg

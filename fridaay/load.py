@@ -1,19 +1,19 @@
 import os,sys,yaml
 from .constants import *
 
-def read_yaml(name, folder=PIPE_FOLDER):
+def load_yaml(name, folder=PIPE_FOLDER):
     filename = f'{name}.yml'
     path = os.path.join(folder, filename)
     with open(path, 'r') as file:
         yml = yaml.safe_load(file)
         return yml
 
-def read_yamls(folder=PIPE_FOLDER):
+def load_yamls(folder=PIPE_FOLDER):
     ydict = {}
     for root, dirs, files in os.walk(folder):
-       print(f'read_yamls: {root}')
+       print(f'load_yamls: {root}')
        for name in files:
           split = name.split('.')
           key = split[0]
-          if 'yml' in split: ydict[key] = read_yaml(key, root)
+          if 'yml' in split: ydict[key] = load_yaml(key, root)
     return ydict

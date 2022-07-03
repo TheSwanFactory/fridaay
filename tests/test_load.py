@@ -2,14 +2,14 @@ import pytest
 from .conftest import *
 
 @pytest.fixture
-def yml(): return read_yaml(TEST_FILE)
+def yml(): return load_yaml(TEST_FILE)
 
 def test_yaml(yml):
     assert yml
     assert 'fridaay' in yml
 
 def test_yamls():
-    ydict = read_yamls()
+    ydict = load_yamls()
     assert ydict
     assert TEST_FILE in ydict
 
