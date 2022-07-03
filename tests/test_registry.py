@@ -3,9 +3,9 @@ from .conftest import *
 
 @pytest.fixture
 def reg():
-    r = Registry(DAD_FOLDER)
+    r = Registry()
     return r
 
 def test_pipe(reg):
     assert reg
-    assert 'init.init' in reg.schemas
+    assert 'core.init' in reg.schemas

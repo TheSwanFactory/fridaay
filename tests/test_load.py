@@ -18,7 +18,3 @@ def test_yamls():
 def test_init(yml):
     action = yml['fridaay']
     assert 'init' == action['do']
-
-def test_schema(yml):
-    yml = read_dad('init')
-    assert yml

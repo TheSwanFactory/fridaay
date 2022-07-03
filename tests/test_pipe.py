@@ -9,11 +9,3 @@ def pipe():
 
 def test_pipe(pipe):
     assert pipe
-
-def test_find_dad(pipe):
-    schema = pipe.find_dad('init')
-    assert isinstance(schema, Schema)
-
-def test_parse(pipe):
-    schema = pipe.find_dad('init')
-    assert isinstance(schema, Schema)
