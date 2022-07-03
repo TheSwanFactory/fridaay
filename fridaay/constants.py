@@ -1,3 +1,4 @@
+LAST_ID='$$'
 FIRST_ID='fridaay'
 DAD_FOLDER="fridaay/dad"
 PIPE_FOLDER="pipes"
