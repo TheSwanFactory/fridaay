@@ -13,10 +13,17 @@ class Pipe:
         for key, value in action.items():
             if value[0] == K_VAR: action[key] = self.vars[1:]
 
+    def init(self, obj):
+        self.registry.init(obj.imports)
+        return self
+
     def compile(self):
         for id, action in self.source.items():
             action['id'] = id
             self.substitute(action)
             obj = self.registry.dadify(action)
-            self.object.push(obj)
+            if obj.do == K_INIT:
+                self.init(obj)
+            else:
+                self.object.push(obj)
             self.vars[K_VAR] = id
