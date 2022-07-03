@@ -8,4 +8,5 @@ class Schema:
         self.struct = namedtuple(self.act, self.keys)
 
     def parse(self, action):
-        return action
+        tuple = self.struct._make(action)
+        return tuple

@@ -12,11 +12,11 @@ class Pipe:
         for id, action in self.source.items():
             action['id'] = id
             act = action['do']
-            schema = self.find_schema(act)
+            schema = self.find_dad(act)
             obj = schema.parse(action)
             self.object.push(obj)
 
-    def find_schema(self, act):
+    def find_dad(self, act):
         if act not in self.schemas:
             yml = read_dad(act)
             schema = Schema(act, yml)
