@@ -4,3 +4,4 @@ from .constants import *
 from .load import *
 from .pipe import *
 from .schema import *
+from .registry import *

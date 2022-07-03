@@ -1,5 +1,5 @@
 load:
-    table.*:
+    table:
       required: False
       type: dict
     csv:
@@ -12,7 +12,7 @@ load:
       required: False
       type: STRING
 select:
-    from:
+    ffrom:
       required: True
       type: frame
     cols:
