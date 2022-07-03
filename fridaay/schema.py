@@ -12,5 +12,6 @@ class Schema:
         return [k if k != K_FROM else K_FKEY for k in keys]
 
     def parse(self, action):
+        if K_FROM in action: action[F_KEY] = action.pop(K_FROM)
         tuple = self.struct._make(action)
         return tuple
