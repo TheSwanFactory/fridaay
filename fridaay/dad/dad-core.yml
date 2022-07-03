@@ -1,7 +1,3 @@
-base:
-    id: STRING*
-    do: STRING*
-    doc: STRING
 init:
     version: DOUBLE*
     imports: dict.STRING*

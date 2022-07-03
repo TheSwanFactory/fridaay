@@ -6,8 +6,8 @@ class Schema:
     def __init__(self, act, dad):
         self.act = act
         self.dad = {}
-        self.keys = []
-        self.optional = []
+        self.keys = ['id','do']
+        self.optional = [] #'doc'
         self.sanitize(dad)
         self.struct = namedtuple(self.act, self.keys)
         self.struct.__doc__ = json.dumps(dad)

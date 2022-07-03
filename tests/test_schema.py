@@ -1,32 +1,48 @@
 import pytest
 from .conftest import *
 
-DICT = {
-"a": "alpha",
-"b": "beta*"
+SCHEME = {
+    "a": "STRING",
+    "b": "STRING*"
+}
+
+DATA = {
+    "id": "name",
+    "do": "act",
+    "a": "alpha",
+    "b": "beta*"
 }
 
 @pytest.fixture
 def schema():
-    s = Schema('dict', DICT)
+    s = Schema('scheme', SCHEME)
     return s
 
 def test_schema(schema):
     assert schema
 
 def test_parse(schema):
-    p = schema.parse(DICT)
+    p = schema.parse(DATA)
     assert p
-    assert p.a == DICT["a"]
+    assert p.a == DATA["a"]
 
 def test_optional(schema):
-    DICT.pop("a")
-    p = schema.parse(DICT)
+    d = DATA.copy()
+    d.pop("a")
+    p = schema.parse(d)
     assert p
 
-def test_mandatory():
+def test_mandatory(schema):
     with pytest.raises(Exception) as e:
-        DICT.pop("b")
-        print(DICT)
-        p = schema.parse(DICT)
+        d = DATA.copy()
+        d.pop("b")
+        print(d)
+        p = schema.parse(d)
+    print(e)
+
+def test_base(schema):
+    with pytest.raises(Exception) as e:
+        d = DATA.copy()
+        d.pop("do")
+        p = schema.parse(d)
     print(e)
