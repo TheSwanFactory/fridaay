@@ -1,4 +1,5 @@
-PIPE_FOLDER="pipes"
+FIRST_ID='fridaay'
 DAD_FOLDER="fridaay/dad"
+PIPE_FOLDER="pipes"
 K_FKEY="fkey"
 K_FROM="from"

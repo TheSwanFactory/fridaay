@@ -1,3 +1,4 @@
+from .constants import *
 from .schema import Schema
 
 class Pipe:
@@ -7,6 +8,7 @@ class Pipe:
         self.object = []
         self.schemas = {}
         self.next_index = 0
+        self.last_id = FIRST_ID
 
     def compile(self):
         for id, action in self.source.items():
