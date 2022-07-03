@@ -1,23 +1,9 @@
 load:
-    table:
-      required: False
-      type: dict
-    csv:
-      required: False
-      type: dict
-    json:
-      required: False
-      type: dict
-    file:
-      required: False
-      type: STRING
+    table: dict
+    csv: dict
+    json: dict
+    file: STRING
 select:
-    ffrom:
-      required: True
-      type: frame
-    cols:
-      required: False
-      type: dict.STRING
-    where:
-      required: False
-      type: dict
+    from: frame*
+    cols: dict.STRING
+    where: dict
