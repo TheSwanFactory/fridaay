@@ -19,6 +19,7 @@ def test_create():
 def test_tuple():
     keys = TEST_DATA.keys()
     struct = namedtuple("TEST_DATA", keys)
-    dad = struct(**TEST_DATA)
-    assert dad.columns == TEST_DATA["columns"]
-    sql.load(True, dad)
+    da = struct(**TEST_DATA)
+    assert da.columns == TEST_DATA["columns"]
+    df = sql.load(True, da)
+    assert not df.empty
