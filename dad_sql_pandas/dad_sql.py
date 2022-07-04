@@ -1,3 +1,3 @@
-def load(a, b): return a
+def load(vm, da): return da
 
-def select(a, b): return b
+def select(vm, da): return da

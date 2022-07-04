@@ -1,5 +1,5 @@
 from collections import namedtuple
-from dad_sql_pandas import *
+import dad_sql_pandas as sql
 import pandas as pd
 
 TEST_DATA = {
@@ -17,6 +17,8 @@ def test_create():
     assert not df.empty
 
 def test_tuple():
-    cols = TEST_DATA["columns"]
-    data = TEST_DATA["data"]
-    struct = namedtuple("TEST_DATA", cols)
+    keys = TEST_DATA.keys()
+    struct = namedtuple("TEST_DATA", keys)
+    dad = struct(**TEST_DATA)
+    assert dad.columns == TEST_DATA["columns"]
+    sql.load(True, dad)
