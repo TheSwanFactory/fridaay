@@ -12,7 +12,10 @@ TEST_DATA = {
 TEST_DF = "test_data"
 TEST_SELECT= {
     "from_key": TEST_DF,
-    "cols": {"A": "All we need"}
+    "cols": {"A": "All we need"},
+    "where_all": False,
+    "where_any": False,
+    "save": False,
 }
 
 def test_pandas():
