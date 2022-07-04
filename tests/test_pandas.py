@@ -12,7 +12,7 @@ TEST_DATA = {
 TEST_DF = "test_data"
 TEST_SELECT= {
     "from_key": TEST_DF,
-    "cols": False
+    "cols": {"A": "All we need"}
 }
 
 def test_pandas():
@@ -40,3 +40,5 @@ def test_select():
     vm = {TEST_DF: df}
     df2 = sql.select(vm, db)
     assert not df2.empty
+    assert "A" in df2
+    assert "B" not in df2
