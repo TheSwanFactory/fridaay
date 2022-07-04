@@ -17,7 +17,7 @@ def _filter(df, conds, ands=True):
 
 def load(vm, da):
     # Assume columns + data
-    df = pd.DataFrame(**da._asdict())
+    df = pd.DataFrame(data=da.data, columns=da.columns)
     return df
 
 def select(vm, da):

@@ -21,3 +21,8 @@ def test_compile(pipe):
     a1 = asms[1]
     print(a1)
     assert a1.from_key == a0.id
+
+def test_run(pipe):
+    vm = pipe.run()
+    print(vm)
+    assert vm

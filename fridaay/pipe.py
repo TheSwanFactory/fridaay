@@ -14,6 +14,7 @@ class Pipe:
             if isinstance(value, str) and value[0] == K_VAR:
                 var = value[1:]
                 action[key] = self.vars[var]
+        return action
 
     def init(self, action):
         self.registry.load(action['imports'])
@@ -32,3 +33,12 @@ class Pipe:
                 self.assembly.append(asm)
             self.vars[K_VAR] = id
         return self.assembly
+
+    def run(self):
+        vm = {}
+        if len(self.assembly) == 0: self.compile()
+        for da in self.assembly:
+            method = da.CODE
+            frame = method(vm, da)
+            vm.setdefault(da.id, frame)
+        return vm
