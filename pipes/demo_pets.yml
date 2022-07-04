@@ -23,7 +23,7 @@ demo_pets:
     Name: .str Personal Name
     Age: .int.year Age
     Weight: .float.pound Current Weight
-#  where_all:
-#   - ['Type', NOT LIKE, $SAPIENT] # dereference constant
-#   - ['Timestamp','>', 2022-01-01]
+  where_all:
+  #- ['Type', NOT LIKE, $SAPIENT] # dereference constant
+  - ['Timestamp','>', 2022-01-01]
   save: [table]
