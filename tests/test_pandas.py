@@ -2,6 +2,13 @@ from collections import namedtuple
 import dad_sql_pandas as sql
 import pandas as pd
 
+def tuplify(name, d): return namedtuple(name, d.keys())(**d)
+
+TEST_DATA = {
+    "columns": ["A", "B"],
+    "data": [[1,2],[11,12],[21,22]]
+}
+
 TEST_DATA = {
     "columns": ["A", "B"],
     "data": [[1,2],[11,12],[21,22]]
@@ -17,9 +24,7 @@ def test_create():
     assert not df.empty
 
 def test_tuple():
-    keys = TEST_DATA.keys()
-    struct = namedtuple("TEST_DATA", keys)
-    da = struct(**TEST_DATA)
+    da = tuplify("TEST_DATA", TEST_DATA)
     assert da.columns == TEST_DATA["columns"]
     df = sql.load(True, da)
     assert not df.empty
