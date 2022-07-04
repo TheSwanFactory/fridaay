@@ -1,3 +1,4 @@
+from fridaay import K_FKEY
 import pandas as pd
 
 def load(vm, da):
@@ -6,5 +7,5 @@ def load(vm, da):
     return df
 
 def select(vm, da):
-    key
-    return da
+    df = vm.get(da.from_key)
+    return df
