@@ -8,4 +8,7 @@ def load(vm, da):
 
 def select(vm, da):
     df = vm.get(da.from_key)
+    if da.cols:
+        colnames = list(da.cols.keys())
+
     return df

@@ -11,7 +11,8 @@ TEST_DATA = {
 
 TEST_DF = "test_data"
 TEST_SELECT= {
-    "from_key": TEST_DF
+    "from_key": TEST_DF,
+    "cols": False
 }
 
 def test_pandas():
