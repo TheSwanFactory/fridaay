@@ -1,5 +1,6 @@
 from fridaay import K_FKEY
 import pandas as pd
+import datetime
 
 # Helper Functions
 
@@ -7,10 +8,18 @@ def _choose_cols(df, colmap):
     cols = list(colmap.keys())
     return df.loc[:, cols]
 
+def _query(c):
+    name, op, value = c
+    #if op == "NOT LIKE":
+    #if isinstance(value, datetime.date): value = '20220101'
+    expr = f'`{name}` {op} {value}'
+    print(expr)
+    return expr
+
 def _filter(df, conds, ands=True):
-    l = [f'`{c[0]}` {c[1]} {c[2]}' for c in conds]
     sep = " AND " if ands else " OR "
-    q = sep.join(l)
+    exprs = [_query(c) for c in conds]
+    q = sep.join(exprs)
     return df.query(q)
 
 # DAD Functions
