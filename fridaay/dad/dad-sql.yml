@@ -1,6 +1,7 @@
 load:
     table: dict
-    csv: dict
+    columns: list.str
+    data: list.list
     json: dict
     file: str
 select:
