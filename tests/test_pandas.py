@@ -1,7 +1,8 @@
-import pandas as pd
+from collections import namedtuple
 from dad_sql_pandas import *
+import pandas as pd
 
-PDATA = {
+TEST_DATA = {
     "columns": ["A", "B"],
     "data": [[1,2],[11,12],[21,22]]
 }
@@ -12,5 +13,10 @@ def test_pandas():
 
 def test_create():
     columns = ['A','B']
-    df = pd.DataFrame(**PDATA)
+    df = pd.DataFrame(**TEST_DATA)
     assert not df.empty
+
+def test_tuple():
+    cols = TEST_DATA["columns"]
+    data = TEST_DATA["data"]
+    struct = namedtuple("TEST_DATA", cols)
