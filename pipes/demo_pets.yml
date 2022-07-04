@@ -2,7 +2,7 @@ fridaay:
   version: 0.1
   do: core.init
   imports:
-   sql: dad-sql-pandas
+   sql: dad_sql_pandas
   set: # global constants (COMMENT)
     NAME: demo_pets
     SAPIENT: Human
