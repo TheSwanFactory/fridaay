@@ -9,9 +9,8 @@ TEST_DATA = {
     "data": [[1,2],[11,12],[21,22]]
 }
 
-TEST_DATA = {
-    "columns": ["A", "B"],
-    "data": [[1,2],[11,12],[21,22]]
+TEST_SELECT= {
+    "from": "test_data"
 }
 
 def test_pandas():
@@ -26,5 +25,8 @@ def test_create():
 def test_tuple():
     da = tuplify("TEST_DATA", TEST_DATA)
     assert da.columns == TEST_DATA["columns"]
+
+def test_load():
+    da = tuplify("TEST_DATA", TEST_DATA)
     df = sql.load(True, da)
     assert not df.empty
