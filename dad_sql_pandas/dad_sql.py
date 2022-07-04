@@ -12,7 +12,7 @@ def _query(c):
     name, op, value = c
     #if op == "NOT LIKE":
     #if isinstance(value, datetime.date): value = '20220101'
-    expr = f'`{name}` {op} {value}'
+    expr = f'{name} {op} {repr(value)}'
     print(expr)
     return expr
 
