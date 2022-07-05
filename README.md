@@ -61,3 +61,10 @@ demo_pets:
   #- ['Timestamp','>', 2022-01-01]
   save: [table]
 ```
+
+# Releases
+```
+$ poetry version minor
+$ poetry --build publish
+$ poetry version preminor
+```
