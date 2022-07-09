@@ -5,8 +5,12 @@ Who needs SQL, Python, JavaScript and CSV?
 Get it all done by FRIDAAY
 
 # Usage
+FRIDAAY uses `poetry` to manage both dependencies and the virtual environment:
 ```
-$ pip install fridaay
+$ poetry install # or '$ poetry update'
+$ poetry env use python3
+$ poetry run pytest
+$ poetry run ptw
 ```
 
 # Overview
