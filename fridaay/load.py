@@ -22,10 +22,12 @@ def load_module(module_name):
     mod = importlib.import_module(module_name)
     return mod
 
-def load_pkg_path(package_name):
+def path_package(package_name):
     posix_path = importlib.resources.files(package_name)
     return posix_path
 
-def load_resource(package_name, subpath):
-    with importlib.resources.read_text(package, resource) as s:
-        return s
+def path_resource(package_name, subpath):
+    for s in importlib.resources.contents(package_name):
+        if (subpath in s):
+            path = os.path.join(path_package(package_name), s)
+            return path

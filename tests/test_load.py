@@ -26,5 +26,10 @@ def test_date(yml):
     assert row[4] < datetime.date(2022, 1, 1)
 
 def test_pkg_path():
-    path = load_pkg_path(PKG_NAME)
+    path = path_package(PKG_NAME)
     assert PKG_NAME in str(path)
+
+def test_resource():
+    path = path_resource(PKG_NAME, 'dad')
+    assert PKG_NAME in path
+    assert 'dad' in path
