@@ -4,7 +4,10 @@ import datetime
 import importlib.resources
 
 @pytest.fixture
-def yml(): return load_yaml(TEST_FILE)
+def yml():
+    folder = path_resource(PKG_ID, PIPE_FOLDER)
+    yml = load_yaml(TEST_FILE, folder)
+    return yml
 
 def test_yaml(yml):
     assert yml

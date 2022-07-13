@@ -3,7 +3,8 @@ from .conftest import *
 
 @pytest.fixture
 def pipe():
-    yml = load_yaml(TEST_FILE)
+    folder = path_resource(PKG_ID, PIPE_FOLDER)
+    yml = load_yaml(TEST_FILE, folder)
     r = Registry()
     p = Pipe(r, yml)
     return p
