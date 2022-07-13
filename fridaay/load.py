@@ -21,3 +21,11 @@ def load_yamls(folder=PIPE_FOLDER):
 def load_module(module_name):
     mod = importlib.import_module(module_name)
     return mod
+
+def load_pkg_path(package_name):
+    posix_path = importlib.resources.files(package_name)
+    return posix_path
+
+def load_resource(package_name, subpath):
+    with importlib.resources.read_text(package, resource) as s:
+        return s

@@ -1,6 +1,7 @@
 import pytest
 from .conftest import *
 import datetime
+import importlib.resources
 
 @pytest.fixture
 def yml(): return load_yaml(TEST_FILE)
@@ -23,3 +24,8 @@ def test_date(yml):
     data = action['data']
     row = data[0]
     assert row[4] < datetime.date(2022, 1, 1)
+
+def test_pkg_path():
+    package_name = 'fridaay'
+    path = load_pkg_path(package_name)
+    assert package_name in str(path)
