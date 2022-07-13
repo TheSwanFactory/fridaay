@@ -1,4 +1,3 @@
-from fridaay import K_FKEY
 import pandas as pd
 import datetime
 
