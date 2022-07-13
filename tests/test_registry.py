@@ -3,8 +3,12 @@ from .conftest import *
 
 @pytest.fixture
 def reg(): return Registry()
+
 @pytest.fixture
-def yml(): return load_yaml(TEST_FILE)
+def path(): return path_resource(PKG_ID, PIPE_FOLDER)
+
+@pytest.fixture
+def yml(path): return load_yaml(TEST_FILE, path)
 
 def test_registry(reg):
     assert reg

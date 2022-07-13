@@ -4,17 +4,17 @@ import datetime
 import importlib.resources
 
 @pytest.fixture
-def yml():
-    folder = path_resource(PKG_ID, PIPE_FOLDER)
-    yml = load_yaml(TEST_FILE, folder)
-    return yml
+def path(): return path_resource(PKG_ID, PIPE_FOLDER)
+
+@pytest.fixture
+def yml(path): return load_yaml(TEST_FILE, path)
 
 def test_yaml(yml):
     assert yml
     assert 'fridaay' in yml
 
-def test_yamls():
-    ydict = load_yamls()
+def test_yamls(path):
+    ydict = load_yamls(path)
     assert ydict
     assert TEST_FILE in ydict
 
