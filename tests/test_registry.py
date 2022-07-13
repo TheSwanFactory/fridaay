@@ -15,9 +15,9 @@ def test_schema(reg):
     assert schema
 
 def test_assemble(reg, yml):
-    init = yml[FIRST_ID]
+    init = yml[PKG_ID]
     assert init
-    init['id'] = FIRST_ID
+    init['id'] = PKG_ID
     imp = init['imports']
     assert imp
     mods = reg.load(imp)

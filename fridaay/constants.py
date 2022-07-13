@@ -1,5 +1,5 @@
-FIRST_ID="fridaay"
-DAD_FOLDER="fridaay/dad"
+PKG_ID="fridaay"
+DAD_RESOURCE="dad"
 PIPE_FOLDER="pipes"
 
 K_CODE="CODE"

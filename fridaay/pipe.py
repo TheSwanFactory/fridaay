@@ -7,7 +7,7 @@ class Pipe:
         self.source = yml
         self.assembly = []
         self.next_index = 0
-        self.vars = {K_VAR: FIRST_ID}
+        self.vars = {K_VAR: PKG_ID}
 
     def substitute(self, action):
         for key, value in action.items():
