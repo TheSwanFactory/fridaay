@@ -1,6 +1,8 @@
 import pytest
 from .conftest import *
 
+PET_FRAME='demo_pets'
+
 @pytest.fixture
 def pipe():
     folder = path_resource(PKG_ID, PIPE_FOLDER)
@@ -24,5 +26,6 @@ def test_compile(pipe):
 def test_run(pipe):
     vm = pipe.run()
     assert vm
-    dp = vm.get('demo_pets')
+    dp = vm.get(PET_FRAME)
     assert len(dp) == 2
+    assert 2 == len(pipe.data[PET_FRAME])
