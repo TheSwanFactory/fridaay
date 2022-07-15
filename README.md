@@ -69,8 +69,7 @@ demo_pets:
 
 # Releases
 ```
-$ poetry version minor
-$ poetry build
-$ poetry publish
-$ poetry version preminor
+$ poetry version patch
+$ poetry build && poetry publish
+$ poetry version prepatch
 ```
