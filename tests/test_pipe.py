@@ -28,4 +28,4 @@ def test_run(pipe):
     assert vm
     dp = vm.get(PET_FRAME)
     assert len(dp) == 2
-    assert 2 == len(pipe.data[PET_FRAME])
+    assert len(pipe.data[PET_FRAME]) == 2
