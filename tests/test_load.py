@@ -9,6 +9,10 @@ def path(): return path_resource(PKG_ID, PIPE_FOLDER)
 @pytest.fixture
 def yml(path): return load_yaml(TEST_FILE, path)
 
+def test_path(path):
+    assert path
+    assert 'fridaay' in path
+
 def test_yaml(yml):
     assert yml
     assert 'fridaay' in yml
