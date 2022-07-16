@@ -11,11 +11,11 @@ def yml(path): return load_yaml(TEST_FILE, path)
 
 def test_path(path):
     assert path
-    assert 'fridaay' in path
+    assert PKG_ID in path
 
 def test_yaml(yml):
     assert yml
-    assert 'fridaay' in yml
+    assert PKG_ID in yml
 
 def test_yamls(path):
     ydict = load_yamls(path)
@@ -23,7 +23,7 @@ def test_yamls(path):
     assert TEST_FILE in ydict
 
 def test_init(yml):
-    action = yml['fridaay']
+    action = yml[PKG_ID]
     assert TEST_DO == action['do']
 
 def test_date(yml):
@@ -37,6 +37,6 @@ def test_pkg_path():
     assert PKG_ID in str(path)
 
 def test_resource():
-    path = path_resource(PKG_ID, 'dad')
+    path = path_resource(PKG_ID, DAD_RESOURCE)
     assert PKG_ID in path
-    assert 'dad' in path
+    assert DAD_RESOURCE in path
