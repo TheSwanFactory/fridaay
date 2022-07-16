@@ -33,10 +33,10 @@ def test_date(yml):
     assert row[4] < datetime.date(2022, 1, 1)
 
 def test_pkg_path():
-    path = path_package(PKG_NAME)
-    assert PKG_NAME in str(path)
+    path = path_package(PKG_ID)
+    assert PKG_ID in str(path)
 
 def test_resource():
-    path = path_resource(PKG_NAME, 'dad')
-    assert PKG_NAME in path
+    path = path_resource(PKG_ID, 'dad')
+    assert PKG_ID in path
     assert 'dad' in path
