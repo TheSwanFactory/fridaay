@@ -7,7 +7,7 @@ import importlib.resources
 def path(): return path_resource(PKG_ID, PIPE_FOLDER)
 
 @pytest.fixture
-def yml(path): return load_yaml(TEST_FILE, path)
+def yml(path): return load_yaml(DEMO_PIPE, path)
 
 def test_path(path):
     assert path
@@ -20,7 +20,7 @@ def test_yaml(yml):
 def test_yamls(path):
     ydict = load_yamls(path)
     assert ydict
-    assert TEST_FILE in ydict
+    assert DEMO_PIPE in ydict
 
 def test_init(yml):
     action = yml[PKG_ID]

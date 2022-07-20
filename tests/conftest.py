@@ -2,7 +2,7 @@ import os
 import sys
 from fridaay import *
 
-TEST_FILE="demo_pets"
+DEMO_PIPE="demo_pets"
 TEST_DO='core.init'
 TEST_ID='test_data'
 

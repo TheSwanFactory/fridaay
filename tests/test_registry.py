@@ -8,7 +8,7 @@ def reg(): return Registry()
 def path(): return path_resource(PKG_ID, PIPE_FOLDER)
 
 @pytest.fixture
-def yml(path): return load_yaml(TEST_FILE, path)
+def yml(path): return load_yaml(DEMO_PIPE, path)
 
 def test_registry(reg):
     assert reg
