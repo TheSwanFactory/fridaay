@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fridaay"
-version = "0.2.2"
+version = "0.2.3"
 description = "Format Representing Interdependent Data Actions As YAML"
 authors = ["Ernest Prabhakar <ernest.prabhakar@gmail.com>"]
 license = "MIT"
