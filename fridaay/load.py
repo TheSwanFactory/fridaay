@@ -1,4 +1,4 @@
-import os,sys,yaml
+import os,sys,yaml,importlib
 from .constants import *
 
 def load_yaml(name, folder=PIPE_FOLDER):
@@ -19,5 +19,15 @@ def load_yamls(folder=PIPE_FOLDER):
     return ydict
 
 def load_module(module_name):
-    mod = __import__(module_name, globals=None, locals=None, fromlist=False)
+    mod = importlib.import_module(module_name)
     return mod
+
+def path_package(package_name):
+    posix_path = importlib.resources.files(package_name)
+    return posix_path
+
+def path_resource(package_name, subpath):
+    for s in importlib.resources.contents(package_name):
+        if (subpath in s):
+            path = os.path.join(path_package(package_name), s)
+            return path

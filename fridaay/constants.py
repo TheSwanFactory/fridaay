@@ -1,6 +1,7 @@
-FIRST_ID="fridaay"
-DAD_FOLDER="fridaay/dad"
+PKG_ID="fridaay"
+DAD_RESOURCE="dad"
 PIPE_FOLDER="pipes"
+DEMO_PIPE="demo_pets"
 
 K_CODE="CODE"
 K_FKEY="from_key"

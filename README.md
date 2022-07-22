@@ -34,6 +34,7 @@ Right now, business logic and data dependencies are trapped inside complex (and 
 - turning legacy code into structured data, which we can manage using all our data superpowers
 
 ## Example
+Available with the package in `folder = path_resource(PKG_ID, PIPE_FOLDER)`
 ```
 fridaay:
   version: 0.1
@@ -68,8 +69,7 @@ demo_pets:
 
 # Releases
 ```
-$ poetry version minor
-$ poetry build
-$ poetry publish
-$ poetry version preminor
+$ poetry version patch
+$ poetry build && poetry publish
+$ poetry version prepatch
 ```

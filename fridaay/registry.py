@@ -1,11 +1,12 @@
-from .constants import DAD_FOLDER
+from .constants import *
 from .load import *
 from .schema import Schema
 
 class Registry:
-    def __init__(self, folder=DAD_FOLDER):
+    def __init__(self, folder=None):
         self.schemas = {}
         self.modules = {}
+        if not folder: folder = path_resource(PKG_ID, DAD_RESOURCE)
         self.add_folder(folder)
 
     def add_dad(self, name, yml):
@@ -16,7 +17,7 @@ class Registry:
     def add_folder(self, folder):
         ydict = load_yamls(folder)
         for id, yml in ydict.items():
-            name = id.replace('dad-','')
+            name = id.replace(f'{DAD_RESOURCE}-','')
             self.add_dad(name, yml)
 
     def assemble(self, action):

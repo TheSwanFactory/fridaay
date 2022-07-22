@@ -3,8 +3,12 @@ from .conftest import *
 
 @pytest.fixture
 def reg(): return Registry()
+
 @pytest.fixture
-def yml(): return load_yaml(TEST_FILE)
+def path(): return path_resource(PKG_ID, PIPE_FOLDER)
+
+@pytest.fixture
+def yml(path): return load_yaml(DEMO_PIPE, path)
 
 def test_registry(reg):
     assert reg
@@ -15,9 +19,9 @@ def test_schema(reg):
     assert schema
 
 def test_assemble(reg, yml):
-    init = yml[FIRST_ID]
+    init = yml[PKG_ID]
     assert init
-    init['id'] = FIRST_ID
+    init['id'] = PKG_ID
     imp = init['imports']
     assert imp
     mods = reg.load(imp)

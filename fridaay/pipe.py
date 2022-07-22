@@ -7,7 +7,8 @@ class Pipe:
         self.source = yml
         self.assembly = []
         self.next_index = 0
-        self.vars = {K_VAR: FIRST_ID}
+        self.vars = {K_VAR: PKG_ID}
+        self.data = {}
 
     def substitute(self, action):
         for key, value in action.items():
@@ -35,10 +36,9 @@ class Pipe:
         return self.assembly
 
     def run(self):
-        vm = {}
         if len(self.assembly) == 0: self.compile()
         for da in self.assembly:
             method = da.CODE
-            frame = method(vm, da)
-            vm.setdefault(da.id, frame)
-        return vm
+            frame = method(self.data, da)
+            self.data.setdefault(da.id, frame)
+        return self.data

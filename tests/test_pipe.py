@@ -3,7 +3,8 @@ from .conftest import *
 
 @pytest.fixture
 def pipe():
-    yml = load_yaml(TEST_FILE)
+    folder = path_resource(PKG_ID, PIPE_FOLDER)
+    yml = load_yaml(DEMO_PIPE, folder)
     r = Registry()
     p = Pipe(r, yml)
     return p
@@ -23,5 +24,6 @@ def test_compile(pipe):
 def test_run(pipe):
     vm = pipe.run()
     assert vm
-    dp = vm.get('demo_pets')
+    dp = vm.get(DEMO_PIPE)
     assert len(dp) == 2
+    assert len(pipe.data[DEMO_PIPE]) == 2
